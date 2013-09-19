@@ -6,7 +6,7 @@
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # X-Interactive:     true
-# Short-Description: Start/stop simon web server
+# Short-Description: Start/stop simon 
 ### END INIT INFO
 
 # Change this PATH if you need
