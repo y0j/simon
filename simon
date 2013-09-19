@@ -9,24 +9,23 @@
 # Short-Description: Start/stop simon web server
 ### END INIT INFO
 
-. /lib/lsb/init-functions
+# Change this PATH if you need
+SIMON="/opt/simon/simon.sh"
 
-SYS_CHECK=/opt/simon/simon.sh
-test -f /opt/simon/simon.sh || echo -e "\e[1;31msimin.sh not found in /opt/simon\e[0m"; exit
+test -f $SIMON || exit
 
 case "$1" in
 start)
-        /opt/simon/simon.sh &
-		log_daemon_msg "Starting scripts" "simon"
+        $SIMON &
+                echo "* Starting simon scripts" 
     ;;
 stop)
         PID=`ps -C simon.sh -opid=`
         kill $PID
-		log_daemon_msg "Stoping scripts" "simon"
+                echo "* Stoping simon scripts"
         ;;
 restart)
         $0 stop
-    	$0 start
-		log_daemon_msg "Restarting scripts" "simon"
+        $0 start
     ;;
 esac
